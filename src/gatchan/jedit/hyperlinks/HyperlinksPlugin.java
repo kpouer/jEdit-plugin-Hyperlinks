@@ -3,7 +3,7 @@
  * :tabSize=4:indentSize=4:noTabs=false:
  * :folding=explicit:collapseFolds=1:
  *
- * Copyright (C) 2007, 2009 Matthieu Casanova
+ * Copyright (C) 2007, 2021 Matthieu Casanova
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -29,7 +29,6 @@ import java.io.*;
 import org.gjt.sp.util.XMLUtilities;
 import org.gjt.sp.util.Log;
 import java.util.*;
-import java.util.stream.Stream;
 
 import gatchan.jedit.hyperlinks.configurable.*;
 
@@ -40,7 +39,7 @@ import gatchan.jedit.hyperlinks.configurable.*;
 public class HyperlinksPlugin extends EditPlugin
 {
 	// members for configurable hyperlinks
-	private HashMap<String, ArrayList<ConfigurableHyperlinkData>> sources;
+	private Map<String, ArrayList<ConfigurableHyperlinkData>> sources;
 	private ConfigurableHyperlinksHandler handler;
 	private File hyperlinksFile;
 	
@@ -48,11 +47,7 @@ public class HyperlinksPlugin extends EditPlugin
 	public void start()
 	{
 		EditBus.addToBus(this);
-		Arrays
-			.stream(jEdit.getViews())
-			.flatMap(view -> Stream.of(view.getEditPane()))
-			.map(EditPane::getTextArea)
-			.forEach(HyperlinksPlugin::initTextArea);
+		jEdit.getEditPaneManager().forEach(editPane -> initTextArea(editPane.getTextArea()));
 
 		// initialize configurable hyperlinks
 		handler = new ConfigurableHyperlinksHandler();
@@ -81,11 +76,7 @@ public class HyperlinksPlugin extends EditPlugin
 	public void stop()
 	{
 		EditBus.removeFromBus(this);
-		Arrays
-			.stream(jEdit.getViews())
-			.flatMap(view -> Stream.of(view.getEditPane()))
-			.map(EditPane::getTextArea)
-			.forEach(HyperlinksPlugin::uninitTextArea);
+		jEdit.getEditPaneManager().forEach(editPane -> uninitTextArea(editPane.getTextArea()));
 	}
 
 	private static void uninitTextArea(JEditTextArea textArea)
