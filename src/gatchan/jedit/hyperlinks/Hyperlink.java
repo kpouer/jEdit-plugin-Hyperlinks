@@ -32,12 +32,12 @@ public interface Hyperlink
 	/**
 	 * Returns the start offset.
 	 */
-	int getStartOffset();
+    long getStartOffset();
 
 	/**
 	 * Returns the end offset.
 	 */
-	int getEndOffset();
+    long getEndOffset();
 
 	/**
 	 * Returns the start physical line where the hyperlink is.

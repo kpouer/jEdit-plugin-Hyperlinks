@@ -48,5 +48,5 @@ public interface HyperlinkSource
 	 * @param offset the offset
 	 * @return the hyperlink (or null if there is no hyperlink)
 	 */
-	Hyperlink getHyperlink(Buffer buffer, int offset);
+	Hyperlink getHyperlink(Buffer buffer, long offset);
 }

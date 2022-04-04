@@ -137,7 +137,7 @@ public class HyperlinkManager
 				painter.setHyperLink(null);
 				return;
 			}
-			int offset = textArea.xyToOffset(e.getX(), e.getY());
+			long offset = textArea.xyToOffset(e.getX(), e.getY());
 			Hyperlink link = hyperlinkSource.getHyperlink(buffer, offset);
 			painter.setHyperLink(link);
 		}

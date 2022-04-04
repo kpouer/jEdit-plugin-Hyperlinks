@@ -4,7 +4,7 @@
 plugin.gatchan.jedit.hyperlinks.HyperlinksPlugin.activate=startup
 plugin.gatchan.jedit.hyperlinks.HyperlinksPlugin.name=Hyperlinks
 plugin.gatchan.jedit.hyperlinks.HyperlinksPlugin.author=Matthieu Casanova
-plugin.gatchan.jedit.hyperlinks.HyperlinksPlugin.version=1.2.1
+plugin.gatchan.jedit.hyperlinks.HyperlinksPlugin.version=2.0.0
 plugin.gatchan.jedit.hyperlinks.HyperlinksPlugin.docs=docs/Hyperlinks.html
 plugin.gatchan.jedit.hyperlinks.HyperlinksPlugin.depend.0=jdk 11
 plugin.gatchan.jedit.hyperlinks.HyperlinksPlugin.depend.1=jedit 05.06.99.00

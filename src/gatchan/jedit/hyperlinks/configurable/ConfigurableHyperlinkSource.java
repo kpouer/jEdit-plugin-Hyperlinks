@@ -47,7 +47,7 @@ public class ConfigurableHyperlinkSource implements HyperlinkSource
 	}
 
 	@Override
-	public Hyperlink getHyperlink(Buffer buffer, int caretPosition)
+	public Hyperlink getHyperlink(Buffer buffer, long caretPosition)
 	{
 		Hyperlink h;
 		for(ConfigurableHyperlinkData data : dataArray)
@@ -59,7 +59,7 @@ public class ConfigurableHyperlinkSource implements HyperlinkSource
 		return currentLink = null;
 	}
 	
-	private Hyperlink getHyperlink(Buffer buffer, int caretPosition, ConfigurableHyperlinkData data)
+	private Hyperlink getHyperlink(Buffer buffer, long caretPosition, ConfigurableHyperlinkData data)
 	{
 		if (currentLink != null)
 		{
@@ -69,14 +69,14 @@ public class ConfigurableHyperlinkSource implements HyperlinkSource
 			}
 		}
 		int line = buffer.getLineOfOffset(caretPosition);
-		int lineStart = buffer.getLineStartOffset(line);
+        long lineStart = buffer.getLineStartOffset(line);
 		int lineLength = buffer.getLineLength(line);
 		if (lineLength == 0)
 		{
 			currentLink = null;
 			return null;
 		}
-		int offset = caretPosition - lineStart;
+        long offset = caretPosition - lineStart;
 		String lineText = buffer.getLineText(line);
 		if (offset == lineLength) offset--;
 		Matcher matcher = data.pattern.matcher(lineText);

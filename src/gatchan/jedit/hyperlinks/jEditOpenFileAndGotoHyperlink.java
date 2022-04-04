@@ -55,7 +55,7 @@ public class jEditOpenFileAndGotoHyperlink extends jEditOpenFileHyperlink
 		VFSManager.waitForRequests();
 		int line = Math.min(buffer.getLineCount() - 1, gotoLine);
 		int column = Math.min(buffer.getLineLength(line), gotoCol);
-		int offset = buffer.getLineStartOffset(line) + column;
+        long offset = buffer.getLineStartOffset(line) + column;
 		// TODO: follow best practice from Navigator plugin
 		try
 		{

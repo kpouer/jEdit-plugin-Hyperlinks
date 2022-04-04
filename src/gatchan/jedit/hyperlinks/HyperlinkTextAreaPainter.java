@@ -46,7 +46,7 @@ public class HyperlinkTextAreaPainter extends TextAreaExtension
 
 	//{{{ paintValidLine() method
 	@Override
-	public void paintValidLine(Graphics2D gfx, int screenLine, int physicalLine, int start, int end, int y)
+	public void paintValidLine(Graphics2D gfx, int screenLine, int physicalLine, long start, long end, int y)
 	{
 		Hyperlink link = hyperLink;
 		if (link == null)
@@ -84,7 +84,7 @@ public class HyperlinkTextAreaPainter extends TextAreaExtension
 		Hyperlink link = hyperLink;
 		if (link == null) return null;
 
-		int offset = textArea.xyToOffset(x, y);
+        long offset = textArea.xyToOffset(x, y);
 		if (hyperLink.getStartOffset() <= offset && hyperLink.getEndOffset() >= offset)
 		{
 			return hyperLink.getTooltip();

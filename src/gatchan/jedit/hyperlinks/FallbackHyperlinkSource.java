@@ -41,7 +41,7 @@ public class FallbackHyperlinkSource implements HyperlinkSource
     }
 
     @Override
-    public Hyperlink getHyperlink(Buffer buffer, int offset)
+    public Hyperlink getHyperlink(Buffer buffer, long offset)
     {
         for (HyperlinkSource hyperlinkSource : hyperlinkSources)
         {

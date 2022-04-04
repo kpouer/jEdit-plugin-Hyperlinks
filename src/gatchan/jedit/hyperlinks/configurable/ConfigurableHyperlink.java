@@ -35,9 +35,9 @@ import org.gjt.sp.util.Log;
  */
 public class ConfigurableHyperlink implements Hyperlink
 {
-	private final int start;
+	private final long start;
 
-	private final int end;
+	private final long end;
 
 	private final int startLine;
 
@@ -48,7 +48,7 @@ public class ConfigurableHyperlink implements Hyperlink
 	private final String code;
 	private final Matcher matcher;
 	
-	public ConfigurableHyperlink(int start, int end, int line, Matcher matcher, String code, String tooltip)
+	public ConfigurableHyperlink(long start, long end, int line, Matcher matcher, String code, String tooltip)
 	{
 		this.start = start;
 		this.end = end;
@@ -99,7 +99,7 @@ public class ConfigurableHyperlink implements Hyperlink
 	 * Returns the start offset.
 	 */
 	@Override
-	public int getStartOffset()
+	public long getStartOffset()
 	{
 		return start;
 	}
@@ -108,7 +108,7 @@ public class ConfigurableHyperlink implements Hyperlink
 	 * Returns the end offset.
 	 */
 	@Override
-	public int getEndOffset()
+	public long getEndOffset()
 	{
 		return end;
 	}

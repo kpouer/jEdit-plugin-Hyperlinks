@@ -39,7 +39,7 @@ public class IncludeHyperlinkSource implements HyperlinkSource
 	private Hyperlink currentLink;
 
 	@Override
-	public Hyperlink getHyperlink(Buffer buffer, int caretPosition)
+	public Hyperlink getHyperlink(Buffer buffer, long caretPosition)
 	{
 		if (currentLink != null)
 		{
@@ -49,14 +49,14 @@ public class IncludeHyperlinkSource implements HyperlinkSource
 			}
 		}
 		int line = buffer.getLineOfOffset(caretPosition);
-		int lineStart = buffer.getLineStartOffset(line);
+        long lineStart = buffer.getLineStartOffset(line);
 		int lineLength = buffer.getLineLength(line);
 		if (lineLength == 0)
 		{
 			currentLink = null;
 			return null;
 		}
-		int offset = caretPosition - lineStart;
+        long offset = caretPosition - lineStart;
 		String lineText = buffer.getLineText(line);
 		if (offset == lineLength) offset--;
 

@@ -34,7 +34,7 @@ import org.gjt.sp.jedit.msg.PositionChanging;
 public class jEditOpenFileHyperlink extends AbstractHyperlink
 {
 	public final String path;
-	public jEditOpenFileHyperlink(int start, int end, int line, String url)
+	public jEditOpenFileHyperlink(long start, long end, int line, String url)
 	{
 		super(start, end, line, url);
 		path = url;

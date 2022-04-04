@@ -3,7 +3,7 @@
  * :tabSize=8:indentSize=8:noTabs=false:
  * :folding=explicit:collapseFolds=1:
  *
- * Copyright (C) 2007 Matthieu Casanova
+ * Copyright (C) 2007-2022 Matthieu Casanova
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -26,9 +26,9 @@ package gatchan.jedit.hyperlinks;
  */
 public abstract class AbstractHyperlink implements Hyperlink
 {
-	private final int start;
+	private final long start;
 
-	private final int end;
+	private final long end;
 
 	private final int startLine;
 
@@ -37,12 +37,12 @@ public abstract class AbstractHyperlink implements Hyperlink
 	private final String tooltip;
 
 	//{{{ AbstractHyperlink constructors
-	protected AbstractHyperlink(int start, int end, int startLine, String tooltip)
+	protected AbstractHyperlink(long start, long end, int startLine, String tooltip)
 	{
 		this(start, end, startLine, startLine, tooltip);
 	}
 
-	protected AbstractHyperlink(int start, int end, int startLine, int endLine, String tooltip)
+	protected AbstractHyperlink(long start, long end, int startLine, int endLine, String tooltip)
 	{
 		this.start = start;
 		this.end = end;
@@ -57,7 +57,7 @@ public abstract class AbstractHyperlink implements Hyperlink
 	 * Returns the start offset.
 	 */
 	@Override
-	public int getStartOffset()
+	public long getStartOffset()
 	{
 		return start;
 	}
@@ -66,7 +66,7 @@ public abstract class AbstractHyperlink implements Hyperlink
 	 * Returns the end offset.
 	 */
 	@Override
-	public int getEndOffset()
+	public long getEndOffset()
 	{
 		return end;
 	}
